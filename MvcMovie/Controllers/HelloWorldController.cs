@@ -6,14 +6,17 @@ namespace MvcMovie.Controllers
     public class HelloWorldController : Controller
     {
         // GET: HelloWorld
-        public string Index()
+        public ActionResult Index()
         {
-            return "this is my <b>default</b> 动作";
+            return View();
         }
         //Get: HelloWorld/Welcome
-        public string Welcome(string name, int ID)
+        public ActionResult Welcome(string name, int numTimes = 1)
         {
-            return HttpUtility.HtmlEncode(" 好吧，" + name + "你抓到我了" + ID);
+            ViewBag.Message = "你好啊" + name;
+            ViewBag.NumTimes = numTimes;
+
+            return View();
         }
     }
 }
